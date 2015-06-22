@@ -10,3 +10,21 @@ Most of the configuration is defined in the **src/main/resources/shiro.ini** fil
 A specific logout application url is available at: http://localhost:8080/logout.
 
 Run your CAS server on https://localhost:8888/cas.
+
+***
+
+Fork info
+---
+
+I have created this fork to demonstrate a problem I have.
+
+### Problem Description
+I am adding in CAS SSO support to a number web applications that make use of Shiro. These applications all set the session manager to an instance of [DefaultWebSessionManager](https://shiro.apache.org/static/1.2.3/apidocs/org/apache/shiro/web/session/mgt/DefaultWebSessionManager.html). This is done to make use of a [SessionListener](https://shiro.apache.org/static/1.2.3/apidocs/org/apache/shiro/session/SessionListener.html) (see [setSessionListeners](https://shiro.apache.org/static/1.2.3/apidocs/org/apache/shiro/session/mgt/AbstractNativeSessionManager.html#setSessionListeners%28java.util.Collection%29)) to log session terminations and expirations. If one does not set the session manager, the security manager uses an instance of [ServletContainerSessionManager](http://shiro.apache.org/static/1.2.3/apidocs/org/apache/shiro/web/session/mgt/ServletContainerSessionManager.html).
+
+When using ServletContainerSessionManager (i.e. not specifying a session manager), things works as expected. However, when using a DefaultWebSessionManager, I encounter a problem after authenticating where I get what I can best describe as endless redirects.
+
+I am inexperienced with Shiro and CAS, so I'm not sure what is going on. My best guess is that it has something to do with the ServletContainerSessionManager working with HTTP sessions, while the DefaultWebSessionManager works with Shiro native sessions, but I am in no way confident that is a sufficient, or even correct, explanation.
+
+### Problem Demonstration
+* Edit **src/main/resources/shiro.ini** and comment out the block of text that involves the session manager and session listener. Run the application and everything should function as expected.
+* Edit **src/main/resources/shiro.ini** and un-comment out the previously mentioned block of text. Run the application and after authentication, things should go haywire.
