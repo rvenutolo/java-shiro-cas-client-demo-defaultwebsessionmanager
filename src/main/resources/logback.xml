@@ -7,9 +7,9 @@
         </encoder>
     </appender>
 
-    <logger name="org.rvenutolo" level="TRACE"/>
-    <logger name="org.jasig.cas" level="TRACE"/>
-    <logger name="org.apache.shiro" level="TRACE"/>
+    <logger name="org.rvenutolo" level="INFO"/>
+    <logger name="org.jasig.cas" level="INFO"/>
+    <logger name="org.apache.shiro" level="INFO"/>
 
     <root level="WARN">
         <appender-ref ref="STDOUT"/>
