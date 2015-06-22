@@ -9,4 +9,4 @@ Most of the configuration is defined in the **src/main/resources/shiro.ini** fil
 
 A specific logout application url is available at: http://localhost:8080/logout.
 
-Run your CAS server on http://localhost:8888/cas.
+Run your CAS server on https://localhost:8888/cas.

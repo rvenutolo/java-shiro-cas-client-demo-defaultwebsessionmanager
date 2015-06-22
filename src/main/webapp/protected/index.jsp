@@ -4,23 +4,23 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>java-shiro-cas-client-demo</title>
-	<meta charset="UTF-8" />
-	<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css" />
+    <title>java-shiro-cas-client-demo</title>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css" />
 </head>
 <body>
-	<div class="container">
-		<ul class="nav nav-tabs">
-			<li><a href="/index.jsp">Call the /index.jsp page</a></li>
-			<li class="active"><a href="/protected/index.jsp">You are on the /protected/index.jsp page</a></li>
-			<!-- #### change with your own CAS server and your host name #### -->
-			<li><a href="http://localhost:8888/cas/logout?service=http://localhost:8080">Call the CAS logout</a></li>
-		</ul>
-		<% Subject subject = SecurityUtils.getSubject(); %>
-		<h3>
-			<p>principals : <%=subject.getPrincipals()%></p>
-			<p>isAuthenticated : <%=subject.isAuthenticated()%></p>
-		</h3>
-	</div>
+    <div class="container">
+        <ul class="nav nav-tabs">
+            <li><a href="/index.jsp">Call the /index.jsp page</a></li>
+            <li class="active"><a href="/protected/index.jsp">You are on the /protected/index.jsp page</a></li>
+            <!-- #### change with your own CAS server and your host name #### -->
+            <li><a href="https://localhost:8888/cas/logout?service=http://localhost:8080">Call the CAS logout</a></li>
+        </ul>
+        <% Subject subject = SecurityUtils.getSubject(); %>
+        <h3>
+            <p>principals : <%=subject.getPrincipals()%></p>
+            <p>isAuthenticated : <%=subject.isAuthenticated()%></p>
+        </h3>
+    </div>
 </body>
 </html>
