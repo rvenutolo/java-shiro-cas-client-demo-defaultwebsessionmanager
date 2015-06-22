@@ -1,17 +1,18 @@
 <configuration>
 
-  <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
-    <encoder>
-      <!--<pattern>java-shiro-cas-client-demo  %d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n</pattern>-->
-      <pattern>%d{HH:mm:ss.SSS} %-5level: %logger - %msg%n</pattern>
-    </encoder>
-  </appender>
+    <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <!--<pattern>java-shiro-cas-client-demo  %d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n</pattern>-->
+            <pattern>%d{HH:mm:ss.SSS} %-5level: %logger - %msg%n</pattern>
+        </encoder>
+    </appender>
 
-  <logger name="org.jasig.cas" level="TRACE" />
-  <logger name="org.apache.shiro" level="TRACE" />
+    <logger name="org.rvenutolo" level="TRACE"/>
+    <logger name="org.jasig.cas" level="TRACE"/>
+    <logger name="org.apache.shiro" level="TRACE"/>
 
-  <root level="WARN">
-    <appender-ref ref="STDOUT" />
-  </root>
+    <root level="WARN">
+        <appender-ref ref="STDOUT"/>
+    </root>
 
 </configuration>
