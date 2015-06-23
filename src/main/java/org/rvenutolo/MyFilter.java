@@ -29,12 +29,14 @@ public class MyFilter implements Filter {
             throws IOException, ServletException {
         final HttpServletRequest httpRequest = (HttpServletRequest) request;
         final String requestURI = httpRequest.getRequestURI();
-        requestURIs.add(requestURI);
-        logger.info("Request URIs: ");
-        int index = 1;
-        for (final String uri : requestURIs) {
-            logger.info("{}: {}", index, uri);
-            index++;
+        synchronized (requestURIs) {
+            requestURIs.add(requestURI);
+            logger.info("Request URIs: ");
+            int index = 1;
+            for (final String uri : requestURIs) {
+                logger.info("{}: {}", index, uri);
+                index++;
+            }
         }
         chain.doFilter(request, response);
     }
