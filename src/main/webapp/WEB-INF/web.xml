@@ -43,4 +43,9 @@
         <url-pattern>/*</url-pattern>
     </filter-mapping>
 
+    <session-config>
+        <!-- Disables URL-based sessions -->
+        <tracking-mode>COOKIE</tracking-mode>
+    </session-config>
+
 </web-app>
