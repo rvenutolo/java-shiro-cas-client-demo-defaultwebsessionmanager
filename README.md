@@ -26,5 +26,8 @@ When using ServletContainerSessionManager (i.e. not specifying a session manager
 I am inexperienced with Shiro and CAS, so I'm not sure what is going on. My best guess is that it has something to do with the ServletContainerSessionManager working with HTTP sessions, while the DefaultWebSessionManager works with Shiro native sessions, but I am in no way confident that is a sufficient, or even correct, explanation.
 
 ### Problem Demonstration
-* Edit **src/main/resources/shiro.ini** and comment out the block of text that involves the session manager and session listener. Run the application and everything should function as expected.
-* Edit **src/main/resources/shiro.ini** and un-comment out the previously mentioned block of text. Run the application and after authentication, things should go haywire.
+##### Edit **src/main/resources/shiro.ini** according to the following steps:
+* Comment out the block of text that involves the session manager and session listener. Run the application and everything should function as expected.
+* Un-comment out the previously mentioned block of text. Run the application and after clicking on the protected tag and authenticating, things should go haywire.
+* Un-comment out the block of text where a cookie is defined and the session manager's session id cookie is set to that cookie. Run the application and logging in should work as desired, however logout will not.
+* Un-comment out the block of text where the cookie's secure and httpOnly flags are set. Run the application and logging in and out should work, however clicking on the protected tab will redirect to /, and clicking on the non-protected tab will not display the logged-in principal.
