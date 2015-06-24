@@ -30,6 +30,6 @@ I am inexperienced with Shiro and CAS, so I'm not sure what is going on. My best
 * Comment out the block of text that involves the session manager and session listener. Run the application and everything should function as expected.
 * Un-comment out the previously mentioned block of text. Run the application and after clicking on the protected tab and authenticating, things should go haywire.
 
-##### I have tried a handful of ideas to attempt to fix this. The most promising seems to be related to session cookies. To demonstrate these attempts, edit **src/main/resources/shiro.ini** according to the following steps:
+##### I have tried a handful of ideas to attempt to fix this. The most promising seems to be related to the session id cookie. To demonstrate these attempts, edit **src/main/resources/shiro.ini** according to the following steps:
 * Un-comment out the block of text where a cookie is defined and the session manager's session id cookie is set to that cookie. Run the application and logging in should work as desired, however logout will not (CAS seems to recognize that you've signed out, but the application session is still valid(?)).
 * Un-comment out the block of text where the cookie's secure and httpOnly flags are set. Run the application and logging in and out should work, however clicking on the protected tab will redirect to /, and clicking on the non-protected tab will not display the logged-in principal.
