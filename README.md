@@ -23,7 +23,7 @@ I am adding in CAS SSO support to a number web applications that make use of Shi
 
 When using ServletContainerSessionManager (i.e. not specifying a session manager), things works as expected. However, when using a DefaultWebSessionManager, I encounter a problem after authenticating where I get what I can best describe as endless redirects.
 
-I am inexperienced with Shiro and CAS, so I'm not sure what is going on. My best guess is that it has something to do with the ServletContainerSessionManager working with HTTP sessions, while the DefaultWebSessionManager works with Shiro native sessions, or maybe it has to do with cookies, but I am in no way confident that is a sufficient, or even correct, explanation.
+I am inexperienced with Shiro and CAS, so I'm not sure what is going on. My best guess is that it has something to do with the ServletContainerSessionManager working with HTTP sessions, while the DefaultWebSessionManager works with Shiro native sessions, and something to do with session IDs, but I am in no way confident that is a sufficient, or even correct, explanation.
 
 ### Problem Demonstration
 ##### Edit **src/main/resources/shiro.ini** according to the following steps:
